@@ -11,18 +11,32 @@ class Solution:
             x = n - x + 1
             y = n - y + 1 
         x,y = min(x,y),max(x,y)
-
+        print(x,y)
+        #Left side
+#         for i in range(x):
+#             L[i] += x - i
+         
+        #Right side
+#         for i in range(0,n-y):
+#             L[i] += n-y-i-1
+        
+        #Outside of the shortcut.
+#         for k in range(x):
+#             for i in range(n - y + 1,0,-1):
+#                 L[i+k-1] += 1
+        
+        
+        #Inside shortcut
+#         for i in range(x+1,y):
+#             L[abs(min(abs(x-i),abs(y-i))) -1] += 1
+#         
+        #From left side to inside
         for i in range(x):
-            L[i] += x - i
+            L[abs(min(abs(x-i),abs(y-i))) -1+ i]
+
+        #From right side to inside
         
-        for i in range(0,n-y):
-            L[i] += n-y-i-1
-        
-        for i in range(0,y-x):
-            L[i] += y-x - i
-        
-        for i in range(n - (y-x)):
-            print(i)
+        #holder = holder.sort()
         
         #for i in range(n-1):
         #    for k in range(i+1,n):
@@ -37,7 +51,7 @@ if __name__ == "__main__":
     a = Solution()
     b = 8
     
-    print(a.countOfPairs(b,4,6))
+    print(a.countOfPairs(8,3,6))
     
     #print("#Dist 1-2")
     #print(1,1,a.countOfPairs(b,1,1))
